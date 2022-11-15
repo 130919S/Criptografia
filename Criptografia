@@ -1,0 +1,66 @@
+#função pra criptografar
+
+#Aqui está o input para você digitar a  frase que deseja criptografar.
+frase = input('digite algo: ')
+
+#Abaixo decidimos usar função para iniciar a criptografia da frase
+def criptografar(frase):
+
+  frase_crip = ""
+
+  for i in frase:  #Aqui a frase escolhida passa por iteração através do laço "for"
+    frase_crip = frase_crip + chr(ord(i) + 3)
+
+  #Tendo iterado damos um "return" para retornar a frase criptografada
+  return frase_crip
+
+
+cripfrase_1=''
+
+#decidimos usar o laço de repetição "while" para perguntar ao usuário se deseja criptografar a frase
+
+while cripfrase_1!='S':
+
+    #caso a resposta seja "s" revelará a frase criptografada. Como usamos o .uppper após a variável, é indiferente
+    #digitar com s maiusculo ou minusculo
+
+  cripfrase_1=input('Deseja criptografrar a sua frase? Digite [S] para ver sua frase criptografada: ').upper()
+  print(criptografar(frase))
+
+#ao optar por criptografar saímos da laço de repetição acima
+
+#PROCESSO PARA DESCRIPTOGRAFAR A FRASE
+
+#Pedimos para copiar a frase acima criptografada e colar no input abaixo
+frase_crip_2=input('Copie a frase criptografa acima e dê enter: ')
+descripfrase_2=''
+
+#Seguindo o while acima, aqui ao digitar o S saímos desse laço de repetição
+while descripfrase_2!="S":
+
+    #usamos uma função para descriptografar a frase
+
+    def descriptografar (frase_crip_2):
+      frase = ''
+
+    #a frase criptografada passa pela iteração
+
+      for i in frase_crip_2:
+
+            #aqui passamos pelo processo inverso da criptografia, lá adicionamos uma quantidade de números
+            #aqui extraímos
+
+            frase = frase + chr(ord(i) - 3)
+
+        #por fim damos return
+
+      return frase
+
+    #Usamos a condicional para perguntar ao usuário se deseja descriptografar a frase, se digitar S, visualizará a frase
+    #original, antes de passar pela criptografia
+
+    descripfrase_2=input('Deseja visualizar a frase descriptografada?: Digite [S] para sim: ').upper()
+
+    if descripfrase_2=='S':
+
+        print(descriptografar(frase_crip_2))
